@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+    'Students',
+    'Faculty',
+    "What's New",
+    'Tech Trends',
+    'Music',
+    'Log Out'
 ];
 
 /* 
@@ -19,6 +19,7 @@ let menuItems = [
     </ul>
   </div>
 
+  
   The function takes an array as its only argument.
 
   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
@@ -33,3 +34,32 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+function menu(obj) {
+    const mainMenu = document.createElement('div');
+    const list = document.createElement('ul');
+    const button = document.querySelector('.menu-button');
+
+    obj.map(element => {
+        const items = document.createElement('li');
+        items.textContent = element;
+        list.append(items);
+
+
+
+    })
+
+    mainMenu.appendChild(list);
+
+    mainMenu.classList.add('menu');
+
+
+    button.addEventListener('click', event => {
+        mainMenu.classList.toggle('menu--open');
+    })
+
+    return mainMenu;
+
+}
+const menu1 = document.querySelector('.header');
+menu1.appendChild(menu(menuItems));
